@@ -32,7 +32,7 @@ CREATE TABLE `product` (
   `product_id` int NOT NULL,
   `product_name` varchar(200) DEFAULT NULL,
   `product_price` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
