@@ -20,7 +20,7 @@ conn.connect((err) =>{
   console.log('Mysql Connected...');
 });
 
-//show all products
+//show all products list
 app.get('/api/products',(req, res) => {
   let sql = "SELECT * FROM product";
   let query = conn.query(sql, (err, results) => {
@@ -29,7 +29,7 @@ app.get('/api/products',(req, res) => {
   });
 });
 
-//show single product
+//show single product id wise
 app.get('/api/products/:id',(req, res) => {
   let sql = "SELECT * FROM product WHERE product_id="+req.params.id;
   let query = conn.query(sql, (err, results) => {
@@ -38,7 +38,7 @@ app.get('/api/products/:id',(req, res) => {
   });
 });
 
-//add new product
+//add a new product id wise
 app.post('/api/products',(req, res) => {
   let data = {product_name: req.body.product_name, product_price: req.body.product_price};
   let sql = "INSERT INTO product SET ?";
@@ -48,7 +48,7 @@ app.post('/api/products',(req, res) => {
   });
 });
 
-//update product
+//update a single product id wise
 app.put('/api/products/:id',(req, res) => {
   let sql = "UPDATE product SET product_name='"+req.body.product_name+"', product_price='"+req.body.product_price+"' WHERE product_id="+req.params.id;
   let query = conn.query(sql, (err, results) => {
@@ -57,7 +57,7 @@ app.put('/api/products/:id',(req, res) => {
   });
 });
 
-//Delete product
+//Delete a a single product id wise
 app.delete('/api/products/:id',(req, res) => {
   let sql = "DELETE FROM product WHERE product_id="+req.params.id+"";
   let query = conn.query(sql, (err, results) => {
